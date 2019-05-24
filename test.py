@@ -10,5 +10,5 @@ if __name__ == '__main__':
     item2 = MenuItem('empty test 2')
     subMenu1 = Menu(item1, item2)
     item3 = MenuItem('sub menu', subMenu=subMenu1, callback=foo)
-    testMenu = Menu(item1, item2, item3)
+    testMenu = Menu(item1, item2, item3, title='Main Menu')
     testMenu.show()
