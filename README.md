@@ -1,1 +1,1 @@
-# lynx-menus
+# lynx-menu
