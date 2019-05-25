@@ -5,8 +5,7 @@ import os
 class Menu(object):
     def __init__(self, *items, **kwargs):
         self.items = []
-        if 'title' in kwargs:
-            self.title = kwargs['title']
+        self.title = kwargs.get('title', '')
         for item in items:
             self.add(item)
 
@@ -18,7 +17,7 @@ class Menu(object):
 
     def show(self):
         clear()
-        if hasattr(self, 'title'):
+        if len(self.title):
             self.showTitle()
         for i, item in enumerate(self.items):
             print('[{}] {}'.format(i + 1, item.title))
@@ -52,7 +51,6 @@ class Menu(object):
 
     def addParentToChild(self, child):
         child.parent = self
-        pass
 
     def showTitle(self):
         print(self.title)
@@ -63,7 +61,7 @@ class MenuItem(object):
         self.title = title
         if subMenu is not None:
             self.subMenu = subMenu
-            if not hasattr(subMenu, 'title'):
+            if len(self.title):
                 subMenu.title = self.title
         if callback is not None:
             self.callback = callback
