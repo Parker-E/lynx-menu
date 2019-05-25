@@ -6,6 +6,7 @@ class Menu(object):
     def __init__(self, *items, **kwargs):
         self.items = []
         self.title = kwargs.get('title', '')
+        self.header = kwargs.get('header', '')
         for item in items:
             self.add(item)
 
@@ -17,6 +18,8 @@ class Menu(object):
 
     def show(self):
         clear()
+        if len(self.header):
+            self.showHeader()
         if len(self.title):
             self.showTitle()
         for i, item in enumerate(self.items):
@@ -54,6 +57,9 @@ class Menu(object):
 
     def showTitle(self):
         print(self.title)
+
+    def showHeader(self):
+        print(self.header)
 
 
 class MenuItem(object):
