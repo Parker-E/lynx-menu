@@ -1,3 +1,3 @@
 # lynx-menu
 
-A small CLI menu library written in python
+A small menu library written in python
